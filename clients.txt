@@ -1,0 +1,5 @@
+Ahmed | Mohamed | mom1232344@gmail.com | 07708972714 | A1 | 2005 | 10000.000000
+Malak | Mohamed | malakm@gmail.com | +9642362165 | A2 | 2008 | 500000.000000
+Mohamed | Jassem | mfod12@gmail.com | 07713145944 | A12 | 1968 | 1000000.000000
+Fadela | Majed | fa@gmail.com | 102231544 | A3 | 1968 | 7000.000000
+Amani | Mohamed | am@mohameds.com | 07713145944 | A4 | 2002 | 1000.000000
