@@ -1,6 +1,7 @@
 #pragma once
 #include "../main/person.h"
 #include "cstring.h"
+#include "util.h"
 #include <fstream>
 #include <iostream>
 
@@ -13,6 +14,7 @@ const int transactionsPermission = 1 << 5;
 const int manageUsersPermission = 1 << 6;
 const int ShowLogPermission = 1 << 7;
 const int fullPermissions = -1;
+
 class User : public Person {
 private:
   int _permissions;
@@ -39,27 +41,26 @@ private:
     std::string email = vRecord.at(2);
     std::string phone = vRecord.at(3);
     std::string userName = vRecord.at(4);
-    std::string password = vRecord.at(5);
     int permissions = std::stoi(vRecord.at(6));
+    std::string password = Util::decrypt(vRecord.at(5), permissions % 5);
 
     User user(mode::update, firstName, lastName, email, phone, userName,
               password, permissions);
-
-    int x = 1;
 
     return user;
   }
 
   static std::string _convertObjectToRecord(User user) {
     std::string record = "";
+    int permissions = user.getPermission();
 
     record += user.getFirstName() + " | ";
     record += user.getLastName() + " | ";
     record += user.getEmail() + " | ";
     record += user.getPhone() + " | ";
     record += user.getUserName() + " | ";
-    record += user.getPassword() + " | ";
-    record += std::to_string(user.getPermission());
+    record += Util::encrypt(user.getPassword(), permissions % 5) + " | ";
+    record += std::to_string(permissions);
 
     return record;
   }

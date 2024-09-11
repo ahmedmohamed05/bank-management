@@ -11,11 +11,12 @@
 class LoginScreen : protected Screen {
 private:
   static std::string _getUserLog(User &user) {
-    std::string log = "";
+    int permissions = user.getPermission();
 
+    std::string log = "";
     log += user.getFullName() + " | ";
-    log += user.getPassword() + " | ";
-    log += std::to_string(user.getPermission());
+    log += Util::encrypt(user.getPassword(), permissions % 5) + " | ";
+    log += std::to_string(permissions);
 
     return log;
   }
@@ -41,7 +42,6 @@ public:
     Screen::_printScreenHeader("\t\tLogin Screen");
 
     bool loginFaild = false;
-    int maximumTries = 3, tryNumber = 1;
 
     for (int i = 1; i <= 3; i++) {
       std::string username = Input::readString("Enter username: ");

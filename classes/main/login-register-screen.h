@@ -1,6 +1,7 @@
 #pragma once
 #include "./screen.h"
 #include "cstring.h"
+#include "util.h"
 #include <iostream>
 #include <vector>
 
@@ -24,7 +25,7 @@ private:
     login l;
     l.timeDate = log.at(0);
     l.username = log.at(1);
-    l.password = log.at(2);
+    l.password = Util::decrypt(log.at(2), stoi(log.at(3)) % 5);
     l.permission = stoi(log.at(3));
 
     return l;
