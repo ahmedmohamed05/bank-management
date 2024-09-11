@@ -1,8 +1,7 @@
 #pragma once
-#include "./bank-client.h"
+#include "../../public/input.h"
 #include "../main/screen.h"
-#include <cctype>
-#include <input.h>
+#include "./bank-client.h"
 #include <iostream>
 #include <numeric>
 

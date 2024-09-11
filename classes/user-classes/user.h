@@ -1,7 +1,7 @@
 #pragma once
+#include "../../public/cstring.h"
+#include "../../public/util.h"
 #include "../main/person.h"
-#include "cstring.h"
-#include "util.h"
 #include <fstream>
 #include <iostream>
 

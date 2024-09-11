@@ -1,9 +1,9 @@
 #pragma once
 #include "../../public/global.h"
+#include "../../public/input.h"
 #include "../client-classes/bank-client.h"
-#include "screen.h"
+#include "./screen.h"
 #include <cstdlib>
-#include <input.h>
 #include <iostream>
 // Screens
 #include "../client-classes/delete-client-screen.h"

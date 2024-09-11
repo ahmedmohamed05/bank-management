@@ -1,6 +1,6 @@
 #pragma once
+#include "../../public/input.h"
 #include "../main/screen.h"
-#include <input.h>
 
 class FindUserScreen : protected Screen {
   static void _printUser(User &user) {

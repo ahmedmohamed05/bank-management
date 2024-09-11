@@ -1,7 +1,7 @@
 #pragma once
+#include "../../public/input.h"
 #include "../main/screen.h"
-#include "bank-client.h"
-#include "input.h"
+#include "./bank-client.h"
 #include <iostream>
 
 class TransferScreen : protected Screen {

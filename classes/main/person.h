@@ -1,7 +1,5 @@
 #pragma once
-
 #include <iostream>
-
 class Person {
 private:
   std::string _firstName, _lastName, _email, _phone;

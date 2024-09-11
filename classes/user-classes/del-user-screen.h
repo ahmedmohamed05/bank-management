@@ -1,7 +1,7 @@
 #pragma once
+#include "../../public/input.h"
 #include "../main/screen.h"
 #include "./user.h"
-#include <input.h>
 #include <iostream>
 
 class DelUserScreen : protected Screen {

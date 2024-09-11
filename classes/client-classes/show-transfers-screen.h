@@ -1,6 +1,6 @@
 #pragma once
+#include "../../public/cstring.h"
 #include "../main/screen.h"
-#include "cstring.h"
 #include <fstream>
 #include <iomanip>
 #include <iostream>

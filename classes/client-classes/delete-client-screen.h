@@ -1,7 +1,7 @@
 #pragma once
-#include "./bank-client.h"
+#include "../../public/input.h"
 #include "../main/screen.h"
-#include <input.h>
+#include "./bank-client.h"
 #include <iostream>
 
 class DeleteClientScreen : protected Screen {
@@ -13,7 +13,7 @@ private:
     std::cout << "Full Name  : " << client.getFullName() << '\n';
     std::cout << "Email      : " << client.getEmail() << '\n';
     std::cout << "Phone      : " << client.getPhone() << '\n';
-    std::cout << "Acc. Numbe : " << client.getAccountNumber() << '\n';
+    std::cout << "Acc. Number : " << client.getAccountNumber() << '\n';
     std::cout << "Password   : " << client.getPinCode() << '\n';
     std::cout << "Balance    : " << client.getBalance() << '\n';
   }

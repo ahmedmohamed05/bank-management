@@ -1,11 +1,11 @@
 #pragma once
 #include "../../public/global.h"
+#include "../../public/input.h"
 #include "../user-classes/user.h"
 #include "./main-screen.h"
 #include "./screen.h"
 #include <ctime>
 #include <fstream>
-#include <input.h>
 #include <iostream>
 
 class LoginScreen : protected Screen {

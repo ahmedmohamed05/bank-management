@@ -5,9 +5,9 @@
 #include <string>
 #include <vector>
 
+#include "../../public/cstring.h"
+#include "../../public/date.h"
 #include "../main/person.h"
-#include "cstring.h"
-#include "date.h"
 
 class BankClient : public Person {
 private:

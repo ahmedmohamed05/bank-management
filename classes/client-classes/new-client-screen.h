@@ -1,8 +1,8 @@
 #pragma once
+#include "../../public/input.h"
 #include "../main/screen.h"
 #include "./bank-client.h"
 #include <cstdlib>
-#include <input.h>
 #include <iostream>
 
 class NewClientScreen : protected Screen {

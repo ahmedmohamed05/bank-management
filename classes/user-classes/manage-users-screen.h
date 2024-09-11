@@ -1,7 +1,6 @@
 #pragma once
+#include "../../public/input.h"
 #include "../main/screen.h"
-#include <input.h>
-
 #include "./del-user-screen.h"
 #include "./find-user-screen.h"
 #include "./list-users-screen.h"

@@ -1,8 +1,8 @@
 #pragma once
+#include "../../public/input.h"
 #include "../main/screen.h"
 #include "./bank-client.h"
-#include <input.h>
-#include <istream>
+#include <iostream>
 // Screens
 #include "./deposit-screen.h"
 #include "./show-transfers-screen.h"
