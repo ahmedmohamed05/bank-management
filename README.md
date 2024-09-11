@@ -1,4 +1,4 @@
-make sure to create this files
+make sure to create these files
 1: clients.txt
 2: log.txt
 3: users.txt
