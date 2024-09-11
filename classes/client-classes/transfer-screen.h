@@ -57,7 +57,7 @@ public:
 
     system("clear");
 
-    if (transferFromClient.transfer(amount, transferFromClient)) {
+    if (transferFromClient.transfer(amount, transferToClient)) {
       std::cout << "Transfer down successfully\n";
     } else {
       std::cout << "Error something went wrong\n";

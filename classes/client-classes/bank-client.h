@@ -7,6 +7,7 @@
 
 #include "../main/person.h"
 #include "cstring.h"
+#include "date.h"
 
 class BankClient : public Person {
 private:
@@ -70,6 +71,45 @@ private:
     }
 
     return vClients;
+  }
+
+  // record follows this format
+  // from | oldFromBalance | amount | newFromBalance | to | oldToBalance |
+  // newToBalance | at | doneBy
+  std::string _getTransferRecordLine(BankClient &to, double amount,
+                                     std::string separator = " | ") {
+    std::string record = "";
+
+    std::string timeDate = Date::getTodayTimeAndDate();
+
+    std::string oldFromBalance = std::to_string(this->getBalance() + amount);
+    std::string newFromBalance = std::to_string(this->getBalance());
+
+    std::string oldToBalance = std::to_string(to.getBalance() - amount);
+    std::string newToBalance = std::to_string(to.getBalance());
+
+    record += this->getAccountNumber() + separator;
+    record += oldFromBalance + separator;
+    record += std::to_string(amount) + separator;
+    record += newFromBalance + separator;
+    record += to.getAccountNumber() + separator;
+    record += oldToBalance + separator;
+    record += newToBalance + separator;
+    record += timeDate + separator;
+    record += currentUser.getUserName();
+
+    return record;
+  }
+
+  void _recordTransfer(BankClient &destinationClient, double amount) {
+    std::fstream file("transfers.txt", ios::app);
+
+    if (file.is_open()) {
+      std::string record = _getTransferRecordLine(destinationClient, amount);
+
+      file << record << '\n';
+      file.close();
+    }
   }
 
   static void _saveClientsToFile(const std::vector<BankClient> &vClients) {
@@ -263,8 +303,13 @@ public:
     if (amount > this->_balance) {
       return false;
     }
+
     this->withdraw(amount);
     destinationClient.deposit(amount);
-    return save() == saveResult::succeed;
+
+    this->_recordTransfer(destinationClient, amount);
+    save();
+
+    return true;
   }
 };
