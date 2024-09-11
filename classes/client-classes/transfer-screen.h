@@ -30,6 +30,8 @@ private:
 
 public:
   static void showTransferScreen() {
+    Screen::_printScreenHeader("\t\tTransfer Screen");
+
     BankClient transferFromClient =
         _findClient("Enter account number for client to transfer from: ");
     _simplePrint(transferFromClient);
