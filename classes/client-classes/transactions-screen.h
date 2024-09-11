@@ -5,6 +5,7 @@
 #include <istream>
 // Screens
 #include "./deposit-screen.h"
+#include "./show-transfers-screen.h"
 #include "./total-balances-screen.h"
 #include "./transfer-screen.h"
 #include "./withdraw-screen.h"
@@ -16,11 +17,12 @@ private:
     showWithdraw,
     totalBalances,
     transfer,
+    showTransfersLog,
     mainMenu
   };
 
   static short _readTransactionOption() {
-    short option = Input::readShortInRange("What do you want to do: ", 1, 5);
+    short option = Input::readShortInRange("What do you want to do: ", 1, 6);
     return option;
   }
 
@@ -31,6 +33,10 @@ private:
   static void _showTotalBalances() { TotalBalancesScreen::showBalances(); }
 
   static void _showTransferScreen() { TransferScreen::showTransferScreen(); }
+
+  static void _showTransfersLogScreen() {
+    TransfersScreen::showTransfersScreen();
+  }
 
   static void _performTransactionOperation(transactionsOptions option) {
     system("clear");
@@ -47,6 +53,9 @@ private:
     case transactionsOptions::transfer:
       _showTransferScreen();
       break;
+    case transactionsOptions::showTransfersLog:
+      _showTransfersLogScreen();
+      break;
     case transactionsOptions::mainMenu:
       return;
       break;
@@ -61,7 +70,8 @@ public:
     std::cout << "[2] Withdraw.\n";
     std::cout << "[3] Total Balances.\n";
     std::cout << "[4] Transfer.\n";
-    std::cout << "[5] Main Menu.\n";
+    std::cout << "[5] Show Transfer Log.\n";
+    std::cout << "[6] Main Menu.\n";
     std::cout << "===========================================\n";
     _performTransactionOperation(
         transactionsOptions(_readTransactionOption() - 1));
