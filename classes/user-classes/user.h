@@ -11,6 +11,7 @@ const int updateUserPermission = 1 << 3;
 const int findUserPermission = 1 << 4;
 const int transactionsPermission = 1 << 5;
 const int manageUsersPermission = 1 << 6;
+const int ShowLogPermission = 1 << 7;
 const int fullPermissions = -1;
 class User : public Person {
 private:

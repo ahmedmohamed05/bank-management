@@ -16,14 +16,14 @@ private:
   }
   static void _printClient(BankClient &client) {
     std::cout << "Client Card.\n";
-    std::cout << "First Name : " << client.getFirstName() << '\n';
-    std::cout << "Last Name  : " << client.getLastName() << '\n';
-    std::cout << "Full Name  : " << client.getFullName() << '\n';
-    std::cout << "Email      : " << client.getEmail() << '\n';
-    std::cout << "Phone      : " << client.getPhone() << '\n';
-    std::cout << "Acc. Numbe : " << client.getAccountNumber() << '\n';
-    std::cout << "Password   : " << client.getPinCode() << '\n';
-    std::cout << "Balance    : " << client.getBalance() << '\n';
+    std::cout << "First Name  : " << client.getFirstName() << '\n';
+    std::cout << "Last Name   : " << client.getLastName() << '\n';
+    std::cout << "Full Name   : " << client.getFullName() << '\n';
+    std::cout << "Email       : " << client.getEmail() << '\n';
+    std::cout << "Phone       : " << client.getPhone() << '\n';
+    std::cout << "Acc. Number : " << client.getAccountNumber() << '\n';
+    std::cout << "Password    : " << client.getPinCode() << '\n';
+    std::cout << "Balance     : " << client.getBalance() << '\n';
   }
 
 public:
@@ -41,15 +41,15 @@ public:
     _printClient(clientFound);
 
     char edit =
-        Input::readCharacter("Do you want to update this clien [y, n]: ",
-                             "Enter signle character\n");
+        Input::readCharacter("Do you want to update this client [y, n]: ",
+                             "Enter single character\n");
     if (edit == 'y') {
       _readClientInfo(clientFound);
       BankClient::saveResult saveResult = clientFound.save();
 
       switch (saveResult) {
       case BankClient::saveResult::faildClientEmpty:
-        std::cout << "Faild To Save Clien, Becuase It's Empty\n";
+        std::cout << "Faild To Save client, Because It's Empty\n";
         break;
       case BankClient::saveResult::succeed:
         std::cout << "Client Updated\n";
@@ -57,7 +57,7 @@ public:
         break;
       }
     } else {
-      std::cout << "Operation Cancled\n";
+      std::cout << "Operation canceled\n";
     }
   }
 };

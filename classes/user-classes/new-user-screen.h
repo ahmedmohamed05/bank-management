@@ -69,6 +69,13 @@ private:
       }
     }
 
+    {
+      char confirmation = tolower(Input::readCharacter("Show Logs [y, n]: "));
+      if (confirmation == 'y') {
+        permissions = permissions | ShowLogPermission;
+      }
+    }
+
     return permissions;
   }
 

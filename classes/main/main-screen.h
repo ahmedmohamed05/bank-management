@@ -13,6 +13,7 @@
 #include "../client-classes/transactions-screen.h"
 #include "../client-classes/update-client-screen.h"
 #include "../user-classes/manage-users-screen.h"
+#include "./login-register-screen.h"
 
 class MainScreen : protected Screen {
 private:
@@ -24,13 +25,14 @@ private:
     findClient,
     showTransactions,
     manage,
+    showLoginRegister,
     logOut,
     endProg,
   };
 
   static short _readUserOption() {
     short option;
-    option = Input::readShortInRange("What do you want to do: ", 1, 9);
+    option = Input::readShortInRange("What do you want to do: ", 1, 10);
     return option;
   }
 
@@ -48,6 +50,10 @@ private:
     Transactions::showTransactionsScreen();
   }
 
+  static void _showLoginRegisterScreen() {
+    LoginRegisterScreen::showLoginRegistersScreen();
+  }
+
   static void _showManageUsersMenu() {
     ManageUsersScreen::showManageUsersScreen();
   }
@@ -60,9 +66,9 @@ private:
   static void _performMainMenuOption(_options MainMenuOption) {
     system("clear");
 
-    // MainMenuOption < 5: so that the user can logout and exit without
+    // MainMenuOption < 8: so that the user can logout and exit without
     // permissions
-    if (!currentUser.checkPermission(MainMenuOption) && MainMenuOption < 5) {
+    if (!currentUser.checkPermission(MainMenuOption) && MainMenuOption < 8) {
       Screen::_printAccessDenied("\t\tAccess Denied\n\t\tContact your admin");
     } else {
       switch (MainMenuOption) {
@@ -87,6 +93,9 @@ private:
       case _options::manage:
         _showManageUsersMenu();
         break;
+      case _options::showLoginRegister:
+        _showLoginRegisterScreen();
+        break;
       case _options::logOut:
         currentUser = User::find("", "");
         return;
@@ -109,8 +118,9 @@ public:
     std::cout << "[5] Find Client.\n";
     std::cout << "[6] Transactions.\n";
     std::cout << "[7] Manage Users.\n";
-    std::cout << "[8] Logout.\n";
-    std::cout << "[9] Exit.\n";
+    std::cout << "[8] Show Logins.\n";
+    std::cout << "[9] Logout.\n";
+    std::cout << "[10] Exit.\n";
     std::cout << "===========================================\n";
 
     _performMainMenuOption(_options(_readUserOption() - 1));

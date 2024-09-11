@@ -258,4 +258,13 @@ public:
 
     return balances;
   }
+
+  bool transfer(double amount, BankClient &destinationClient) {
+    if (amount > this->_balance) {
+      return false;
+    }
+    this->withdraw(amount);
+    destinationClient.deposit(amount);
+    return save() == saveResult::succeed;
+  }
 };
