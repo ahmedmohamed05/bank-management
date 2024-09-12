@@ -12,6 +12,7 @@
 #include "../client-classes/show-clients-screen.h"
 #include "../client-classes/transactions-screen.h"
 #include "../client-classes/update-client-screen.h"
+#include "../currency-exchange/main-screen.h"
 #include "../user-classes/manage-users-screen.h"
 #include "./login-register-screen.h"
 
@@ -26,13 +27,14 @@ private:
     showTransactions,
     manage,
     showLoginRegister,
+    currencyExchange,
     logOut,
     endProg,
   };
 
   static short _readUserOption() {
     short option;
-    option = Input::readShortInRange("What do you want to do: ", 1, 10);
+    option = Input::readShortInRange("What do you want to do: ", 1, 11);
     return option;
   }
 
@@ -52,6 +54,10 @@ private:
 
   static void _showLoginRegisterScreen() {
     LoginRegisterScreen::showLoginRegistersScreen();
+  }
+
+  static void _showCurrencyExchangeScreen() {
+    CurrencyMainScreen::showMainScreen();
   }
 
   static void _showManageUsersMenu() {
@@ -96,6 +102,9 @@ private:
       case _options::showLoginRegister:
         _showLoginRegisterScreen();
         break;
+      case _options::currencyExchange:
+        _showCurrencyExchangeScreen();
+        break;
       case _options::logOut:
         currentUser = User::find("", "");
         return;
@@ -119,8 +128,9 @@ public:
     std::cout << "[6] Transactions.\n";
     std::cout << "[7] Manage Users.\n";
     std::cout << "[8] Show Logins.\n";
-    std::cout << "[9] Logout.\n";
-    std::cout << "[10] Exit.\n";
+    std::cout << "[9]: Currency Exchange.\n";
+    std::cout << "[10] Logout.\n";
+    std::cout << "[11] Exit.\n";
     std::cout << "===========================================\n";
 
     _performMainMenuOption(_options(_readUserOption() - 1));
