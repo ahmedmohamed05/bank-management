@@ -24,6 +24,25 @@ public:
     return n;
   }
 
+  static float readFloat(std::string msg,
+                         std::string errMsg = "Invalid number\n") {
+    float n;
+    std::cout << msg;
+    std::cin >> n;
+
+    while (std::cin.fail()) {
+      std::cout << errMsg;
+
+      std::cin.clear();
+      std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+      std::cout << msg;
+      std::cin >> n;
+    }
+
+    return n;
+  }
+
   static short readShort(std::string msg,
                          std::string errMsg = "Invalid number\n") {
     short n;

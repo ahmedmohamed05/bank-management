@@ -1,13 +1,10 @@
-#include "./classes/currency-exchange/main-screen.h"
 #include "./classes/main/login-screen.h"
 #include <iostream>
 
 int main() {
-  // while (true) {
-  //   LoginScreen::showLoginScreen();
-  // }
-
-  CurrencyMainScreen::showMainScreen();
+  while (true) {
+    LoginScreen::showLoginScreen();
+  }
 
   return 0;
 }

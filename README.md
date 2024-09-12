@@ -7,3 +7,5 @@ make sure to create these files
 and move them wherever the executable file is
 
 NOTE: you can move the libraries to your /usr/local/include if you are on linux, After that you can edit the path and use the libraries in your projects or you can leave everything
+
+NOTE: move currencies.txt file to the directory wherever the executable file is

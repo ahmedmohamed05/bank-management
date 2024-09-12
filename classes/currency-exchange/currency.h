@@ -79,6 +79,8 @@ public:
   Currency() { _status = status::notValid; }
 
   void setRate(float rate) {
+    if (rate <= 0)
+      return;
     _rate = rate;
     _updateRate();
   }
