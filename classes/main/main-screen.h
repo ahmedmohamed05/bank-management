@@ -120,15 +120,15 @@ public:
   static void printMainScreen() {
     Screen::_printScreenHeader("\t\tMain Screen", 43);
 
-    std::cout << "[1] Show Client List.\n";
-    std::cout << "[2] Add New Client.\n";
-    std::cout << "[3] Delete Client.\n";
-    std::cout << "[4] Update Client Info.\n";
-    std::cout << "[5] Find Client.\n";
-    std::cout << "[6] Transactions.\n";
-    std::cout << "[7] Manage Users.\n";
-    std::cout << "[8] Show Logins.\n";
-    std::cout << "[9]: Currency Exchange.\n";
+    std::cout << "[1]  Show Client List.\n";
+    std::cout << "[2]  Add New Client.\n";
+    std::cout << "[3]  Delete Client.\n";
+    std::cout << "[4]  Update Client Info.\n";
+    std::cout << "[5]  Find Client.\n";
+    std::cout << "[6]  Transactions.\n";
+    std::cout << "[7]  Manage Users.\n";
+    std::cout << "[8]  Show Logins.\n";
+    std::cout << "[9]  Currency Exchange.\n";
     std::cout << "[10] Logout.\n";
     std::cout << "[11] Exit.\n";
     std::cout << "===========================================\n";

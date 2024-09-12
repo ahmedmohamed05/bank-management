@@ -39,6 +39,9 @@ public:
           _readCurrency("Enter code or country name to convert from: ");
       Currency to = _readCurrency("Enter code or country name to convert to: ");
 
+      std::cout << "Convert from " << from.getCode() << " to " << to.getCode()
+                << "\n";
+
       double amount = Input::readDouble("Enter the amount: ");
 
       while (amount <= 0) {
