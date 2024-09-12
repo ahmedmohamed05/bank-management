@@ -36,7 +36,7 @@ private:
       ConvertCurrenciesScreen::showConvertScreen();
       break;
     case _options::mainMenu:
-      break;
+      return;
     }
     showMainScreen();
   }

@@ -1,6 +1,6 @@
 #pragma once
-#include "./user.h"
 #include "../main/screen.h"
+#include "./user.h"
 #include <vector>
 
 class ListUsersScreen : protected Screen {
@@ -34,8 +34,6 @@ private:
 
 public:
   static void showUsers() {
-    std::cout << "Show users screen will be here\n";
-
     std::vector<User> users = User::getUsers();
 
     _printHeader(users.size());
